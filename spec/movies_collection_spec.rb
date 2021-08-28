@@ -15,7 +15,7 @@ RSpec.describe MoviesCollection do
   describe '.from_files' do
     it 'creates an instance using data from a file' do
       expect(collection_from_files).to be_instance_of(MoviesCollection)
-      expect(collection_from_files.movies).to all(be_instance_of(Movie))
+      expect(collection_from_files.movies).to all be_instance_of(Movie)
       expect(collection_from_files.movies.first.to_s).to eq('Спилберг - Терминал (2004)')
       expect(collection_from_files.movies.last.to_s).to eq('Рефн - Вальгалла: Сага о викинге (2009)')
     end
