@@ -40,4 +40,3 @@ RSpec.describe MoviesCollection do
     end
   end
 end
-
