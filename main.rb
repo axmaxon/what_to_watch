@@ -27,4 +27,3 @@ chosen_director = directors[answer_of_user - 1]
 # Предлагаем вариант из фильмов выбранного пользователем режиссера
 puts "И сегодня вечером рекомендуем посмотреть:"
 puts all_movies.random_movie_by_director(chosen_director)
-
