@@ -7,7 +7,6 @@ class Movie
     @year = year
   end
 
-  # метод вернёт полную информацию по фильму
   def to_s
     "#{@director} - #{@title} #{@year}"
   end

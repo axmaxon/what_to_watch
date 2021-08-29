@@ -2,8 +2,9 @@ require 'nokogiri'
 require 'open-uri'
 require_relative 'lib/movie'
 require_relative 'lib/movies_collection'
+require_relative 'lib/scraper'
 
-all_movies = MoviesCollection.from_html
+all_movies = MoviesCollection.new(Scraper.parse_html)
 
 # Получаем всех доступных режиссёров (без повторов)
 directors = all_movies.directors
