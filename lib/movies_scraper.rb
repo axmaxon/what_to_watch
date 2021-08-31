@@ -1,8 +1,10 @@
-class Scraper
+module MoviesScraper
+  extend self
+
   KINOPOISK_TOP_LIST = 'https://www.kinopoisk.ru/top/navigator/'
 
-  def self.parse_html
-    parsed_page = Nokogiri::HTML(URI.open(KINOPOISK_TOP_LIST))
+  def parse_kinopoisk_top_list
+    parsed_page = parse_page(KINOPOISK_TOP_LIST)
     target_part = parsed_page.css('div.info')
 
     target_part.filter_map do |item|
@@ -14,5 +16,11 @@ class Scraper
       # (несколько есть таких)
       Movie.new(title, director, year) unless director.empty?
     end
+  end
+
+  private
+
+  def parse_page(page_url)
+    Nokogiri::HTML(URI.open(page_url, &:read))
   end
 end
